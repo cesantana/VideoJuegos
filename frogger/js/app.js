@@ -1,9 +1,9 @@
-var Xdir = 101;
-var Ydir = 84;
-var Canvasleft = 0;
-var Canvasright = 400;
-var Canvastop = 84;
-var Canvasbottom = 400;
+var goX = 101;
+var goY = 84;
+var leftSize = 0;
+var rightSize = 400;
+var topSize = 84;
+var bottomSize = 400;
 
 // Enemies our player must avoid
 var Enemy = function(x,y) {
@@ -15,9 +15,7 @@ var Enemy = function(x,y) {
     this.sprite = 'images/enemy-bug.png';
 	this.x = x;
     this.y = y;
-    var enemySpeeds = [80, 140, 160, 180, 200, 240, 280, 300];
-    var randomSpeed = enemySpeeds[Math.floor(Math.random() * enemySpeeds.length)];
-    this.speed = randomSpeed;  
+    this.speed = (Math.random() * 300) +80;  
 };
 
 // Update the enemy's position, required method for game
@@ -27,7 +25,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 	this.x += this.speed * dt;
-    if (this.x > Canvasright) {
+    if (this.x > rightSize+101) {
         this.x = Math.floor(Math.random() * -300);
     }
 };
@@ -59,21 +57,21 @@ Player.prototype.update = function(dt) {
 Player.prototype.handleInput = function(key) {
 	 switch(key){
     case 'left':
-        if (this.x > Canvasleft)
-        this.x -=Xdir;
+        if (this.x > leftSize)
+        this.x -=goX;
         break;
     case 'right':
-        if (this.x < Canvasright)
-        this.x +=Xdir;
+        if (this.x < rightSize)
+        this.x +=goX;
         break;
     case 'up':
-        if (this.y > Canvastop)
-        this.y -=Ydir;
+        if (this.y > topSize)
+        this.y -=goY;
         else player.reset();
         break;
     case 'down':
-        if (this.y < Canvasbottom)
-        this.y +=Ydir;
+        if (this.y < bottomSize)
+        this.y +=goY;
         break;
     default:
         return;
