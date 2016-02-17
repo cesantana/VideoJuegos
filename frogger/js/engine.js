@@ -151,6 +151,7 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
+        LifeBoard.render();
 
         player.render();
     }

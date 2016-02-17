@@ -4,6 +4,27 @@ var leftSize = 0;
 var rightSize = 400;
 var topSize = 84;
 var bottomSize = 400;
+var life=3;
+
+var board = function (x,y){
+    this.x=x;
+    this.y=y;    
+};
+board.prototype.render = function(){
+  
+    ctx.font="48px heveltica "
+    ctx.fillText(this.getText(),this.x,this.y);
+};
+var Vida=function(x,y){
+  board.call(this, x,y);
+    this.life=life;
+};
+Vida.prototype=Object.create(board.prototype);
+Vida.prototype.getText=function(){
+    return "Lifes: "+ this.life;
+};
+
+var LifeBoard = new Vida (0,580);
 
 // Enemies our player must avoid
 var Enemy = function(x,y) {
@@ -26,9 +47,9 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 	this.x += this.speed * dt;
     if (this.x > rightSize+101) {
-        this.x = Math.floor(Math.random() * -300);
+        this.x = Math.floor(Math.random() * -200);
     }
-};
+};``
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -50,6 +71,11 @@ Player.prototype.update = function(dt) {
     // all computers.
 	for(var e = 0, quantityEnemies = allEnemies.length; e < quantityEnemies; e++) {
         if(player.x <= (allEnemies[e].x + 70) && allEnemies[e].x <= (player.x + 50) && player.y <= (allEnemies[e].y + 70) && allEnemies[e].y <= (player.y + 60)) {
+            LifeBoard.life -= 1;
+            if(LifeBoard.life==0)
+                {
+                    LifeBoard.life=3;
+                }
             player.reset();               
             }
 }
