@@ -1,6 +1,8 @@
 # Frogger INTEC
-# Candido E. Santana!!!
+## Candido E. Santana!!!
 
+
+18/02/2016
 Time to create some awesome things!!! 
 
 Creando un frogger en Javascript para la asignatura Diseño y programación de Videojuegos en INTEC, Santo Domingo República Dominicana.
