@@ -1,8 +1,9 @@
-/**
+/*
  * A brief explanation for "project.json":
  * Here is the content of project.json file, this is the global configuration for your game, you can modify it to customize some behavior.
  * The detail of each field is under it.
- {
+ 
+var game = cc.game ()  {
     "project_type": "javascript",
     // "project_type" indicate the program language of your project, you can ignore this field
 
@@ -45,13 +46,10 @@
     // using this can greatly reduce your game's resource size, and the cocos console tool can package your game with only the modules you set.
     // For details about modules definitions, you can refer to "../../frameworks/cocos2d-html5/modulesConfig.json".
 
-    "jsList"        : [
-    ]
+    "jsList"        : [app.js, resource.js]
     // "jsList" sets the list of js files in your game.
  }
- *
- */
-
+*/
 cc.game.onStart = function(){
     if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
         document.body.removeChild(document.getElementById("cocosLoading"));
@@ -72,4 +70,6 @@ cc.game.onStart = function(){
         cc.director.runScene(new HelloWorldScene());
     }, this);
 };
+
 cc.game.run();
+
