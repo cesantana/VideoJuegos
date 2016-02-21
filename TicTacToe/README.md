@@ -1,6 +1,6 @@
 # Candido E. Santan Veloz 2016
 
-# TicTacToe (Realizado en Cocos2d-x con Javascript)
+## TicTacToe (Realizado en Cocos2d-x con Javascript)
 
 ## Time to work with the real thing
 
