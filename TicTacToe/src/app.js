@@ -111,7 +111,7 @@ var HelloWorldLayer = cc.Layer.extend({
             }
             
             if(target.ref != " "){
-                alert("Se acabo el juego!!! Gano: "+target.juega);
+                alert("Se acabo el juego!!! Gano: "+target.juega + "\n Juega otra vez!!!");
                 limpiarTabla();
             }
         }
