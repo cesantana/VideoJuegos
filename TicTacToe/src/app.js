@@ -1,5 +1,6 @@
 var puntosX=0;
 var puntosY=0;
+
 var HelloWorldLayer = cc.Layer.extend({
     table:null,
     juega:"O",
@@ -129,17 +130,14 @@ var HelloWorldLayer = cc.Layer.extend({
         //scoreboard
         function score()
         {
-        limpiarTabla();
-        alert("Puntos X: " +puntosX +"   Puntos O: " +puntosY);
-            /* var size = cc.winSize;
+        limpiarTabla();var size = cc.winSize;
 		this.size = size;
-        var board = new cc.LabelTTF("Puntos X: " +puntosX +"   Puntos Y: " +puntosY, "Arial", 25);
+        target.removeChildByTag(15, true);
+        var board = new cc.LabelTTF("Puntos X: " +puntosX +"   Puntos O: " +puntosY, "Arial", 25);
         board.x = size.width/2;
         board.y = size.height/2 + 210;
-        alert("Imprime");
-        self.addChild(board, 1);
-        alert("Imprime puntos");
-        */
+        board.setTag(15);
+        target.addChild(board, 1);        
         }
 
         
@@ -219,7 +217,12 @@ var HelloWorldLayer = cc.Layer.extend({
         this.table = new cc.Sprite(res.tablero_png);
         this.table.attr({x: size.width / 2,y: size.height / 2});
         this.addChild(this.table, 0);
-		
+        
+        var board = new cc.LabelTTF("Puntos X: " +puntosX +"   Puntos O: " +puntosY, "Arial", 25);
+        board.x = size.width/2;
+        board.y = size.height/2 + 210;
+        board.setTag(15);
+        this.addChild(board,1);
         
 		//Inicializando eventos
 		cc.eventManager.addListener({
